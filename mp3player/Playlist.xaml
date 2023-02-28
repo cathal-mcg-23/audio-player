@@ -1,0 +1,53 @@
+﻿<Window x:Class="mp3player.Playlist"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:mp3player"
+        mc:Ignorable="d"
+        Title="Playlist" Height="470" Width="377.6" ShowInTaskbar="False" Closing="Window_Closing" Background="#FF263465" WindowStartupLocation="Manual" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+
+
+
+    <Window.Resources>
+        <DataTemplate x:Key="listboxTemplate">
+
+
+
+            <Grid x:Name="Grid_1" 
+                  SizeChanged="Grid_1_SizeChanged"  >
+
+
+                <TextBlock Text="{Binding ListString}"  FontSize="14" 
+                           Foreground="{Binding Colour}" HorizontalAlignment="Left" 
+                           
+                           TextWrapping="NoWrap"
+                           />
+
+                <TextBlock Text="{Binding LengthMins}" Background="Black"   FontSize="14"
+                           Foreground="{Binding Colour}" HorizontalAlignment="Right" Margin="0"
+                           />
+            </Grid>
+
+
+        </DataTemplate>
+    </Window.Resources>
+
+
+
+
+
+    <Grid Margin="0,0,-0.4,42.4">
+
+
+        <ListBox x:Name="Lsb_Pl" Margin="5,16,10.6,0.4"  
+                 ItemTemplate="{StaticResource listboxTemplate}"
+                 Background="Black" 
+                 MouseDoubleClick="Lsb_Pl_MouseDoubleClick" 
+                 HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                 Drop="ListBox_Drop"  AllowDrop="True" />
+
+
+
+    </Grid>
+</Window>
